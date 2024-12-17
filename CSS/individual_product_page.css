@@ -1,0 +1,182 @@
+/* General Page Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f9f4;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Container Styles */
+.product-page-container {
+    max-width: 800px;
+    width: 100%;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Section Styles */
+.product-details-section,
+.seller-info-section,
+.related-products-section {
+    margin-bottom: 20px;
+}
+
+.product-details-section {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.product-image img {
+    width: 200px;
+    height: auto;
+    border-radius: 8px;
+}
+
+.product-info h2 {
+    color: #2a7d2a;
+}
+
+/* Contact Button */
+.contact-btn {
+    padding: 10px 20px;
+    color: white;
+    background-color: #2a7d2a;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.contact-btn:hover {
+    background-color: #1e5d1e;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 20px;
+    width: 90%;
+    max-width: 400px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.close-modal {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    float: right;
+}
+
+.close-modal:hover {
+    color: #333;
+}
+
+#messageField {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+/* Related Products Grid */
+.related-products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+}
+
+.related-product {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+}
+
+.related-product img {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.related-product h3 {
+    font-size: 16px;
+    color: #2a7d2a;
+    margin: 10px 0 5px;
+}
+
+/* Media Queries */
+
+/* Adjust layout for tablets */
+@media (max-width: 768px) {
+    .product-details-section {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .product-image img {
+        width: 100%;
+        max-width: 250px;
+    }
+
+    .product-info h2 {
+        font-size: 24px;
+    }
+
+    .contact-btn {
+        padding: 8px 16px;
+        font-size: 16px;
+    }
+}
+
+/* Adjust layout for mobile devices */
+@media (max-width: 480px) {
+    .product-page-container {
+        padding: 15px;
+    }
+
+    .product-info h2 {
+        font-size: 20px;
+    }
+
+    .contact-btn {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+
+    .modal-content {
+        padding: 15px;
+        width: 90%;
+    }
+
+    .related-products-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+  

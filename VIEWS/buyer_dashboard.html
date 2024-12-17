@@ -1,0 +1,75 @@
+<?php
+session_start();
+if (!isset($_SESSION['email'])) {
+    header("Location: login.php");
+    exit();
+}
+
+include 'db_connect.php';
+
+$email = $_SESSION['email'];
+
+// Fetch current user data
+$stmt = $conn->prepare("SELECT name, location FROM Users WHERE email=?");
+$stmt->bind_param("s", $email);
+$stmt->execute();
+$result = $stmt->get_result();
+$user = $result->fetch_assoc();
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buyer Dashboard</title>
+    <link rel="stylesheet" href="../CSS/buyer_dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Link to JavaScript file -->
+    <script src="../JS/buyer_dashboard.js"></script>
+</head>
+<body>
+    <div class="dashboard-container">
+        <h1>User Dashboard</h1>
+
+        <!-- Profile Section -->
+        <section class="profile-section">
+            <h2>Profile</h2>
+            <div class="profile-info">
+                <p><strong>Name:</strong> <span id="profileName"><?php echo htmlspecialchars($user['name']); ?></span></p>
+                <p><strong>Email:</strong> <span id="profileEmail"><?php echo htmlspecialchars($email); ?></span></p>
+                <p><strong>Location:</strong> <span id="profileLocation"><?php echo htmlspecialchars($user['location']); ?></span></p>
+                <button id="editProfileBtn">Edit Profile</button>
+            </div>
+        </section>
+
+        <!-- Favorites/Wish List Section -->
+        <section class="favorites-section">
+            <h2>Favorites</h2>
+            <div id="favoritesList"></div> <!-- Existing favorites will be loaded here dynamically -->
+            <button id="addFavoriteBtn">Add New Favorite</button>
+        </section>
+
+        <!-- Purchase History Section -->
+        <section class="history-section">
+            <h2>Purchase History</h2>
+            <button id="viewHistoryBtn">View History</button>
+            <div id="purchaseHistoryModal" class="modal" style="display:none;">
+                <div class="modal-content">
+                    <span class="close-btn">&times;</span>
+                    <h3>Purchase History</h3>
+                    <div id="purchaseHistoryContent"></div> <!-- Purchase history will be loaded here dynamically -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Notifications Section -->
+        <section class="notifications">
+            <h2>Notifications</h2>
+            <p>Latest updates from AgroLink...</p>
+            <button id="clearNotificationsBtn">Clear Notifications</button>
+        </section>
+
+    </div>
+</body>
+</html>

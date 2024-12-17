@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Product</title>
+    <link rel="stylesheet" href="../CSS/add_new_product.css">
+    <script src="../JS/add_new_product.js" defer ></script>
+</head>
+<body>
+    <div class="add-product-container">
+        <h1>Add New Product</h1>
+        <form id="addProductForm" method="POST" enctype="multipart/form-data" action="../ACTIONS/create_product.php">
+            <label for="productName">Product Name:</label>
+            <input type="text" id="productName" name="productName" required>
+            <div class="error-message" id="nameError"></div> <!-- Error message for product name -->
+
+            <label for="category">Category:</label>
+            <select id="category" name="category" required>
+                <option value="">Select a category</option>
+                <option value="fruits">Fruits</option>
+                <option value="vegetables">Vegetables</option>
+                <option value="grains">Grains</option>
+                <option value="dairy">Dairy</option>
+            </select>
+            <div class="error-message" id="categoryError"></div> <!-- Error message for category -->
+
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" required></textarea>
+            <div class="error-message" id="descriptionError"></div> <!-- Error message for description -->
+
+            <label for="price">Price:</label>
+            <input type="number" id="price" name="price" required min="0">
+            <div class="error-message" id="priceError"></div> <!-- Error message for price -->
+
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" name="quantity" required min="1">
+            <div class="error-message" id="quantityError"></div> <!-- Error message for quantity -->
+
+            <label for="location">Location:</label>
+            <input type="text" id="location" name="location" required>
+            <div class="error-message" id="locationError"></div> <!-- Error message for location -->
+
+            <label for="imageUpload">Upload Image (max 2MB)(JEP/PNG Allowed):</label>
+            <input type="file" id="imageUpload" name="imageUpload" >      <!-- remember to add the required part -->
+            <div class="error-message" id="imageError"></div> <!-- Error message for image upload -->
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    
+</body>
+</html>
+

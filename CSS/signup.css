@@ -1,0 +1,194 @@
+ 
+/* signup.css */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+:root {
+  --primary-color: green;
+  --primary-color-light: #fffcfa;
+  --primary-color-dark: darkgreen;
+  --text-dark: #18181b;
+  --text-light: #6b7280;
+  --error-color: #e63946;
+  --white: #ffffff;
+  --max-width: 1200px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+.signup__container {
+  max-width: var(--max-width);
+  margin: auto;
+  padding: 5rem 1rem;
+  text-align: center;
+}
+
+.section__header {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.section__description {
+  color: var(--text-light);
+  margin-bottom: 2rem;
+}
+
+.signup__form__container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+}
+
+.signup__form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 400px;
+  width: 100%;
+}
+
+.form__group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  text-align: left;
+}
+
+.form__group label {
+  font-weight: 500;
+  color: var(--text-dark);
+}
+
+.form__group input,
+.form__group select {
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  outline: none;
+  transition: 0.3s;
+}
+
+.form__group input:focus,
+.form__group select:focus {
+  border-color: var(--primary-color);
+}
+
+.error-message {
+  color: var(--error-color);
+  font-size: 0.875rem;
+  margin-top: -5px;
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  color: var(--white);
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background-color: var(--primary-color-dark);
+}
+
+/* Role Description */
+.role__description {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.role__card {
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: var(--primary-color-light);
+}
+
+.role__card h3 {
+  color: var(--primary-color);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.role__card p {
+  color: var(--text-light);
+  line-height: 1.5rem;
+}
+
+
+
+
+.login-redirect {
+  margin-top: 20px;
+  text-align: center; /* Center-aligns the text */
+}
+
+.login-link {
+  color:darkgreen; 
+  text-decoration: none; /* Remove underline */
+}
+
+.login-link:hover {
+  text-decoration: underline; /* Add underline on hover */
+}
+
+/* Base styles for mobile devices */
+.signup__form__container {
+  display: flex;
+  flex-direction: column; /* Stack elements vertically on mobile */
+  align-items: center; /* Center align the form and role descriptions */
+}
+
+.signup__form,
+.role__description {
+  width: 100%; /* Full width on mobile */
+}
+
+/* Media Query for tablets and larger devices (min-width: 768px) */
+@media (min-width: 768px) {
+  .signup__form__container {
+    flex-direction: row; /* Align elements side by side on tablets and laptops */
+    justify-content: space-between; /* Space out the elements */
+  }
+
+  .signup__form {
+    flex: 1; /* Allow the form to take up available space */
+    margin-right: 20px; /* Add space between form and role description */
+  }
+
+  .role__description {
+    flex: 1; /* Allow the role description to take up available space */
+    margin-left: 20px; /* Add space between role description and form */
+  }
+}
+
+/* Media Query for larger screens (min-width: 1024px) */
+@media (min-width: 1024px) {
+  .signup__form__container {
+    max-width: 1200px; /* Set a maximum width for larger screens */
+    margin: 0 auto; /* Center the container */
+  }
+
+  .signup__form,
+  .role__description {
+    padding: 20px; /* Add padding for better spacing */
+  }
+}
+
